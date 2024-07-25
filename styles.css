@@ -1,0 +1,151 @@
+html,
+body {
+  background-image: radial-gradient(#0099ff7f 1px, transparent 1px),
+    radial-gradient(#0099ff7f 1px, transparent 1px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  padding: 0;
+  margin: 0;
+  font-family: "system-ui, Roboto";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  margin: 0;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+
+main {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+section {
+  display: grid;
+  height: auto;
+  place-content: center;
+  place-items: center;
+}
+
+h1 {
+  color: #0099ff;
+  font-weight: 800;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  color: #1c5480;
+  font-size: 24px;
+  margin: 0;
+}
+
+h3 {
+  color: #0099ff;
+  font-size: 24px;
+}
+
+p {
+  color: white;
+}
+
+.image-section {
+  row-gap: 20px;
+}
+
+.image-and-description {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: black;
+
+  &,
+  & > img {
+    border-radius: 10px;
+  }
+}
+
+.image-and-description > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.description-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  gap: 10px;
+  width: 100%;
+  height: 80%;
+  overflow-y: auto;
+  visibility: hidden;
+  & * {
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+}
+
+.image-and-description:hover img {
+  opacity: 0.3;
+}
+
+.image-and-description:hover .description-container {
+  visibility: visible;
+}
+
+.image-and-description:hover .description-container * {
+  opacity: 1;
+}
+
+.icons-container {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.pic-icons {
+  height: 35px;
+  width: 35px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.image-and-description:hover .pic-icons {
+  visibility: visible;
+  opacity: 1;
+}
+
+button {
+  position: sticky;
+  bottom: 12px;
+  border-radius: 10px;
+  width: 94%;
+  border: none;
+  background-color: #0099ff;
+}
+
+@media (width > 500px) {
+  main {
+    width: 500px;
+    height: 95vh;
+  }
+}
