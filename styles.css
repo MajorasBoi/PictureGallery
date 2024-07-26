@@ -15,6 +15,16 @@ body {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0099ff7f;
+  border-radius: 0;
+}
+
 /* Main content */
 
 .main-container {
@@ -26,7 +36,6 @@ body {
 
 main {
   background: white;
-  border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   height: 100%;
   width: 100%;
@@ -80,12 +89,12 @@ label {
   background-color: black;
 
   &,
-  & > img {
+  img {
     border-radius: 10px;
   }
 }
 
-.image-and-description > img {
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -104,11 +113,12 @@ label {
   height: 80%;
   overflow-y: auto;
   visibility: hidden;
-  & * {
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-  }
+}
+
+.description-container * {
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .image-and-description:hover img {
@@ -130,11 +140,16 @@ label {
 }
 
 .pic-icons {
+  margin-left: 5px;
   height: 35px;
   width: 35px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pic-icons:hover {
+  transform: scale(1.1);
 }
 
 .image-and-description:hover .pic-icons {
@@ -144,10 +159,9 @@ label {
 
 button {
   position: sticky;
-  bottom: 12px;
-  border-radius: 10px;
-  width: 95%;
-  margin: auto auto 12px auto;
+  bottom: 0;
+  width: 100%;
+  margin: auto auto 0 auto;
   border: none;
   background-color: #0099ff;
 }
@@ -158,6 +172,7 @@ button:hover,
 }
 
 /* Form window */
+
 .modal-container {
   position: fixed;
   top: 0;
@@ -188,8 +203,8 @@ button:hover,
   margin-bottom: 10px;
 }
 
-input,
-textarea {
+.modal-form input,
+.modal-form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -209,7 +224,13 @@ textarea {
 /* Media queries */
 
 @media (width > 500px) {
+  *::-webkit-scrollbar-thumb {
+    background-color: #0099ff7f;
+    border-radius: 0 10px 10px 0;
+  }
+
   main {
+    border-radius: 10px;
     width: 500px;
     height: 95vh;
   }
