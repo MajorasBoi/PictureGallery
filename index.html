@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Main content  -->
     <div class="main-container">
       <main>
         <section class="header-section">
@@ -20,48 +21,56 @@
 
         <hr style="margin: 12px 24px" />
 
-        <section class="image-section">
-          <div class="image-and-description">
-            <img src="img/img.JPG" alt="Imagen de prueba" />
-            <div class="description-container">
-              <h3>Título de la imagen</h3>
-              <p>Descripción de la imagen</p>
-            </div>
-            <div class="icons-container">
-              <img class="pic-icons" src="svg/edit.png" alt="Edit icon" />
-              <img class="pic-icons" src="svg/delete.png" alt="Delete icon" />
-            </div>
-          </div>
+        <section class="image-section"></section>
 
-          <div class="image-and-description">
-            <img src="img/img.JPG" alt="Imagen de prueba" />
-            <div class="description-container">
-              <h3>Título de la imagen</h3>
-              <p>Descripción de la imagen</p>
-            </div>
-            <div class="icons-container">
-              <img class="pic-icons" src="svg/edit.png" alt="Edit icon" />
-              <img class="pic-icons" src="svg/delete.png" alt="Delete icon" />
-            </div>
-          </div>
-
-          <div class="image-and-description">
-            <img src="img/img.JPG" alt="Imagen de prueba" />
-            <div class="description-container">
-              <h3>Título de la imagen</h3>
-              <p>Descripción de la imagen</p>
-            </div>
-            <div class="icons-container">
-              <img class="pic-icons" src="svg/edit.png" alt="Edit icon" />
-              <img class="pic-icons" src="svg/delete.png" alt="Delete icon" />
-            </div>
-          </div>
-        </section>
-
-        <button style="margin: 12px">
+        <button>
           <p style="margin: 3px; font-size: 24px">Add picture</p>
         </button>
       </main>
     </div>
+
+    <!-- Form window for Intro -->
+    <div class="modal-container">
+      <div class="modal-form">
+        <h2 style="margin-bottom: 10px; color: #0099ff">Adding image</h2>
+        <form id="add-picture-form">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" />
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            style="resize: none; overflow: auto"
+          ></textarea>
+          <label for="image">Image:</label>
+          <input type="file" id="image" name="image" />
+          <button type="submit" style="width: 100%; padding: 0">
+            <p style="margin: 3px; font-size: 24px">Add</p>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Form window for Edit -->
+    <div class="modal-container">
+      <div class="modal-form">
+        <h2 style="margin-bottom: 10px; color: #0099ff">Edit image</h2>
+        <form id="edit-picture-form">
+          <label for="titleToEdit">Title:</label>
+          <input type="text" id="titleToEdit" name="title" />
+          <label for="descriptionToEdit">Description:</label>
+          <textarea
+            id="descriptionToEdit"
+            name="description"
+            style="resize: none; overflow: auto"
+          ></textarea>
+          <button type="submit" style="width: 100%; padding: 0">
+            <p style="margin: 3px; font-size: 24px">Save changes</p>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
