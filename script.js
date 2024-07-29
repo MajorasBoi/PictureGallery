@@ -16,7 +16,7 @@ function createPictureElement(picture, index) {
   imageAndDescription.className = "image-and-description";
 
   const img = document.createElement("img");
-  img.src = `data:image/jpeg;base64,${picture.image}`;
+  img.src = picture.image;
   img.alt = `Image with title "${picture.title}"`;
 
   const descriptionContainer = document.createElement("div");
@@ -114,7 +114,7 @@ function loadPictures() {
   });
 }
 
-async function addPicture() {
+function addPicture() {
   // gets the info from the form
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
@@ -127,14 +127,11 @@ async function addPicture() {
   reader.onload = () => {
     const imageDataUrl = reader.result;
 
-    // converts the image data to a base64 string keeping the second part of the array
-    const base64String = imageDataUrl.split(",")[1];
-
     // stores that info in a variable
     const pictureData = {
       title,
       description,
-      image: base64String,
+      image: imageDataUrl,
     };
 
     // verifies if the variable pictures in LocalStorage exists,
@@ -156,10 +153,10 @@ addPictureButton.addEventListener("click", () => {
   modalContainers[0].style.display = "flex";
 });
 
-addPictureForm.addEventListener("submit", async (e) => {
+addPictureForm.addEventListener("submit", (e) => {
   e.preventDefault(); // avoid sending the form
 
-  await addPicture();
+  addPicture();
 
   // goes back to the main content
   modalContainers[0].style.display = "none";
